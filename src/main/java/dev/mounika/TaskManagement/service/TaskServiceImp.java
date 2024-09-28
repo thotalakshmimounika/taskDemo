@@ -54,21 +54,21 @@ public class TaskServiceImp implements TaskService {
         }
     }
 
-//    @Override
-//    public List<TaskResponseDTO> getAllTasks(int userId) {
-//        // Fetch the user first to ensure they exist
-//        User user = userRepository.findById(userId)
-//                .orElseThrow(() -> new RuntimeException("User not found"));
-//
-//        // Fetch tasks by the user
-//        List<Task> tasks = taskRepository.findByUser(userId);
-//        List<TaskResponseDTO> taskResponseDTOS = new ArrayList<>();
-//
-//        for (Task task : tasks) {
-//            taskResponseDTOS.add(TaskEntityDTOMapper.convertTaskEntityToTaskResponseDTO(task));
-//        }
-//        return taskResponseDTOS;
-//    }
+    @Override
+    public List<TaskResponseDTO> getAllTasks(int userId) {
+        // Fetch the user first to ensure they exist
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        // Fetch tasks by the user
+        List<Task> tasks = taskRepository.findByUserId(userId);
+        List<TaskResponseDTO> taskResponseDTOS = new ArrayList<>();
+
+        for (Task task : tasks) {
+            taskResponseDTOS.add(TaskEntityDTOMapper.convertTaskEntityToTaskResponseDTO(task));
+        }
+        return taskResponseDTOS;
+    }
 
 //    @Override
 //    public TaskResponseDTO updateTask(UUID taskId, CreateTaskRequestDTO taskRequestDTO) {
