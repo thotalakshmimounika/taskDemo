@@ -22,12 +22,12 @@ public class TaskController {
         return ResponseEntity.ok(taskService.createTask(createTaskRequestDTO));
     }
 
-    // Get all tasks for a user
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<TaskResponseDTO>> getAllTasksByUser(@PathVariable int userId) {
-        List<TaskResponseDTO> tasks = taskService.getAllTasks(userId);
-        return ResponseEntity.ok(tasks);
-    }
+//    // Get all tasks for a user
+//    @GetMapping("/user/{userId}")
+//    public ResponseEntity<List<TaskResponseDTO>> getAllTasksByUser(@PathVariable int userId) {
+//        List<TaskResponseDTO> tasks = taskService.getAllTasks(userId);
+//        return ResponseEntity.ok(tasks);
+//    }
 
 //    // Update a task
 //    @PutMapping("/update/{taskId}")
